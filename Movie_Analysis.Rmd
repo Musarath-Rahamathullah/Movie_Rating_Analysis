@@ -1,0 +1,356 @@
+---
+title: "Anyl510_Movie_Analysis"
+author: "Musarath"
+date: "July 2, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require(magrittr)
+require(gsubfn)
+require(proto)
+require(RSQLite)
+
+
+library(sqldf)
+library(ggplot2)
+library(ggpubr)
+library(corrplot)
+library(tidyverse)
+
+library(readr)
+library(tidyr)
+library(dplyr)
+library(stringr)
+library(sqldf)
+library(shiny)
+library(tcltk)
+library(utils)
+library(MASS)
+```
+
+## Downloading and data clean up - MUSARATH.
+## ....tidy data is downloaded into movie.primary.data.csv
+```{r echo = FALSE,eval=FALSE}
+print("cleanup")
+# load movie data file
+movies.data = read.csv("movies2.csv",header = TRUE)
+#check if the data is loaded properly
+dim(movies.data)
+# check for any empty or "NA" fields
+sum(is.na(movies.data))
+# Check for proper data types
+str(movies.data)
+# appropriate data type conversions
+movies.data$Title = as.character(movies.data$Title)
+movies.data$Genres = as.character(movies.data$Genres)
+#movies.data$Year = as.Date(movies.data$Year)
+
+# data clean up
+
+for (i in 1:nrow(movies.data))
+{
+  if(str_detect(movies.data$Title[i],";"))
+  {
+    pos = regexpr(pattern = ';',movies.data$Title[i])
+    titlebeg = substring(movies.data$Title[i],pos+1,nchar(movies.data$Title[i]))
+    titleend = substring(movies.data$Title[i],1,pos-1)
+    movies.data$Title[i] = paste(titlebeg,titleend,sep = '')
+  }
+}  
+
+#write.csv(movies.data,"E:/HBU/Course_Project/Any_510/ml-1m/test.csv",row.names = FALSE)
+# add column for each genre
+
+movies.data = movies.data %>% mutate(Action = 0,Adventure = 0,Animation = 0,Childrens = 0,Comedy = 0,Crime = 0,Documentary =0,Drama=0,Fantasy = 0,Film.Noir=0,Horror=0,Musical=0,Mystery=0,Romance=0,Sci.Fi=0,Thriller=0,War=0,Western=0)
+
+for(i in 1:nrow(movies.data))
+{
+  movies.data$Action[i] = ifelse(str_detect(movies.data$Genres[i],"Action"),1,0)
+  movies.data$Adventure[i] = ifelse(str_detect(movies.data$Genres[i],"Adventure"),1,0)
+  movies.data$Animation[i] = ifelse(str_detect(movies.data$Genres[i],"Animation"),1,0)
+  movies.data$Childrens[i] = ifelse(str_detect(movies.data$Genres[i],"Childrens"),1,0)
+  movies.data$Comedy[i] = ifelse(str_detect(movies.data$Genres[i],"Comedy"),1,0)
+  
+  movies.data$Crime[i] = ifelse(str_detect(movies.data$Genres[i],"Crime"),1,0)
+  movies.data$Documentary[i] = ifelse(str_detect(movies.data$Genres[i],"Documentary"),1,0)
+  movies.data$Drama[i] = ifelse(str_detect(movies.data$Genres[i],"Drama"),1,0)
+  movies.data$Fantasy[i] = ifelse(str_detect(movies.data$Genres[i],"Fantasy"),1,0)
+  movies.data$Film.Noir[i] = ifelse(str_detect(movies.data$Genres[i],"Film.Noir"),1,0)
+  
+  movies.data$Horror[i] = ifelse(str_detect(movies.data$Genres[i],"Horror"),1,0)
+  movies.data$Musical[i] = ifelse(str_detect(movies.data$Genres[i],"Musical"),1,0)
+  movies.data$Mystery[i] = ifelse(str_detect(movies.data$Genres[i],"Mystery"),1,0)
+  movies.data$Romance[i] = ifelse(str_detect(movies.data$Genres[i],"Romance"),1,0)
+  movies.data$Sci.Fi[i] = ifelse(str_detect(movies.data$Genres[i],"Sci.Fi"),1,0)
+  
+  movies.data$Thriller[i] = ifelse(str_detect(movies.data$Genres[i],"Thriller"),1,0)
+  movies.data$War[i] = ifelse(str_detect(movies.data$Genres[i],"War"),1,0)
+  movies.data$Western[i] = ifelse(str_detect(movies.data$Genres[i],"Western"),1,0)
+  
+}
+#remove the Genres column
+movies.data = movies.data[,-4]
+
+
+# load user data file
+users.data = read.csv("users.csv",header = TRUE)
+
+#load rating data file
+rating.data = read.csv("ratings.csv",header = TRUE)
+
+# join the movie and rating tables
+
+data = movies.data %>% left_join(rating.data,by = "MovieId" )
+dim(data)
+
+#check for blank fields
+any(is.na(data))
+sum(is.na(data))
+# exclude the NA records
+data = na.omit(data)
+
+# join the data (movie and rating combined) with user table
+data1 = data %>% left_join(users.data,by = "UserId")
+
+# check for blank records
+sum(is.na(data1))
+
+#Rearrange the column names
+data1 = data1 %>% select(MovieId:UserId,Gender:Zipcode,TimeStamp,Rating)
+
+data1 =  sqldf("select * from data1 where Zipcode between 15000 and 19700")
+
+# converting age column as factors
+
+for(i in 1:nrow(data1))
+{
+  if(data1$Age[i] >= 1 & data1$Age[i] <= 18)
+  data1$Age[i] = 1
+  else
+    if(data1$Age[i] >= 19 & data1$Age[i] <='25')
+    data1$Age[i] = 2
+    else
+      if(data1$Age[i] >= 26 & data1$Age[i] <=35)
+      data1$Age[i] = 3
+      else
+        if(data1$Age[i] >= '36' & data1$Age[i] <=50)
+        data1$Age[i] = 4
+        else 
+          if(data1$Age[i] >= 50)
+          data1$Age[i] = 5
+          
+          print(i)
+} 
+
+# write to movie.data file
+write.csv(data1,"E:/HBU/Course_Project/Any_510/Rahamathullah_Musarath_TeamProject_Proposal/movie.primary.data.csv",row.names = FALSE)
+
+```
+
+
+
+
+## Correlation analysis - MANISHA
+## -----------------------------------------------#
+# Chi square test for primary dataset
+# ***H0: The The two variables are independent***
+# ***H1: The The two variables are dependent***
+## -----------------------------------------------#
+
+```{r echo=FALSE,warning=FALSE}
+myprimarydata <- read.csv("./movie.primary.data.csv")
+
+dim(myprimarydata)
+
+
+
+chi1 <- chisq.test(myprimarydata$Action,myprimarydata$Rating, correct = FALSE)
+chi1
+
+chi2 <- chisq.test(myprimarydata$Adventure,myprimarydata$Rating, correct = FALSE)
+chi2
+
+chi3 <- chisq.test(myprimarydata$Animation,myprimarydata$Rating, correct = FALSE)
+chi3
+
+chi4 <- chisq.test(myprimarydata$Comedy,myprimarydata$Rating, correct = FALSE)
+chi4
+
+chi5 <- chisq.test(myprimarydata$Crime,myprimarydata$Rating, correct = FALSE)
+chi5
+
+chi6 <- chisq.test(myprimarydata$Documentary,myprimarydata$Rating, correct = FALSE)
+chi6
+
+chi7 <- chisq.test(myprimarydata$Drama,myprimarydata$Rating, correct = FALSE)
+chi7
+
+chi8 <- chisq.test(myprimarydata$Fantasy ,myprimarydata$Rating, correct = FALSE)
+chi8
+
+chi9 <- chisq.test(myprimarydata$Film.Noir,myprimarydata$Rating, correct = FALSE)
+chi9
+
+chi10 <- chisq.test(myprimarydata$Horror,myprimarydata$Rating, correct = FALSE)
+chi10
+
+chi11 <- chisq.test(myprimarydata$Horror,myprimarydata$Rating, correct = FALSE)
+chi11
+
+chi12 <- chisq.test(myprimarydata$Musical,myprimarydata$Rating, correct = FALSE)
+chi12
+
+chi14 <- chisq.test(myprimarydata$Romance,myprimarydata$Rating, correct = FALSE)
+chi14
+
+chi15 <- chisq.test(myprimarydata$Sci.Fi,myprimarydata$Rating, correct = FALSE)
+chi15
+
+chi16 <- chisq.test(myprimarydata$Thriller,myprimarydata$Rating, correct = FALSE)
+chi16
+
+chi17 <- chisq.test(myprimarydata$War,myprimarydata$Rating, correct = FALSE)
+chi17
+
+chi19 <- chisq.test(myprimarydata$Occupation,myprimarydata$Rating, correct = FALSE)
+chi19
+
+chi20 <- chisq.test(myprimarydata$Age,myprimarydata$Rating, correct = FALSE)
+chi20
+
+chi21<- chisq.test(myprimarydata$Gender,myprimarydata$Rating, correct = FALSE)
+chi21
+
+chi13 <- chisq.test(myprimarydata$Mystery,myprimarydata$Rating, correct = FALSE)
+chi13
+
+chi16 <- chisq.test(myprimarydata$Thriller,myprimarydata$Rating, correct = FALSE)
+chi16
+
+chi18 <- chisq.test(myprimarydata$Western,myprimarydata$Rating, correct = FALSE)
+chi18
+
+
+print("Movie rating is significantly dependent on gender, age, occupation and all genres except mystery, thriller and western")
+
+#' 
+#' ##Plotting association
+#' 
+## ------------------------------------------------------------------------
+p1 <-ggplot(myprimarydata,aes(myprimarydata$Gender, myprimarydata$Rating)) + geom_point(aes(color=myprimarydata$Rating ))
+
+p1 + geom_smooth()
+
+p2 <-ggplot(myprimarydata,aes(myprimarydata$Gender, fill = myprimarydata$Rating)) + geom_bar()
+
+p2
+p3 <-ggplot(myprimarydata,aes(myprimarydata$Gender, fill = myprimarydata$Rating)) + geom_bar()
+
+
+
+```
+
+# ------------------------------------------------#
+# ## Chi square test for Secondary dataset 
+# ***H0: The The two variables are independent***
+# ***H1: The The two variables are dependent***
+## ------------------------------------------------#
+```{r echo=FALSE,warning=FALSE}
+
+print("....work in progress")
+
+
+```
+
+
+#
+
+## Linear regression analysis - NAVYA
+```{r echo=FALSE,warning=FALSE}
+myprimarydata <- read.csv("./movie.primary.data.csv") 
+#View(myprimarydata)
+
+#str(myprimarydata)
+
+myprimarydata$Gender <- as.factor(myprimarydata$Gender)
+myprimarydata$Age <- as.factor(myprimarydata$Age)
+myprimarydata$Occupation <- as.factor(myprimarydata$Occupation)
+
+indx = sample(1:nrow(myprimarydata),as.integer(0.8*nrow(myprimarydata)))
+train = myprimarydata[indx,]
+test = myprimarydata[-indx,]
+
+lm = lm(Rating ~ Action + Adventure + Animation +	Childrens +	Comedy +	Crime	+ Documentary + 	Drama	+ Fantasy	+ Film.Noir	+ Horror +	Musical + Mystery	+ Romance	+ Sci.Fi + Thriller +  	War +	Western + Gender + Age + Occupation, data = train)
+#summary(lm.fit)
+
+lm.fit = stepAIC(lm,direction = "both")
+
+lm.predict = predict(lm.fit,test)
+
+lm.predict = ceiling(lm.predict)
+actual_predicted = data.frame(Actual = test$Rating,Predicted = lm.predict)
+
+cor(actual_predicted)
+
+
+# We attempted to predict the rating of a movie, based on various factors, such as the Genre of the movie, and the respondent's age group and gender. The initial results were as follows:
+primarylinearmodel <- lm(Rating ~ Action + Adventure + Animation +	Childrens +	Comedy +	Crime	+ Documentary + 	Drama	+ Fantasy	+ Film.Noir	+ Horror +	Musical + Mystery	+ Romance	+ Sci.Fi + Thriller +  	War +	Western + Gender + Age, data = myprimarydata)
+summary(primarylinearmodel)
+
+print("From the above summary, we can see that there a number of variables with high p-values. Hence we attempted to rerun the model by eliminating such variables.") 
+
+primarylinearmodel_adjusted <- lm(Rating ~ Action + Adventure+ Animation +	Childrens +	Crime	+ Documentary + Drama	+ Fantasy+Film.Noir	+ Horror +	Musical + Mystery	+ Romance	+Sci.Fi +Thriller + 	War +	Western , data = myprimarydata)
+summary(primarylinearmodel_adjusted)
+
+par(mfrow = c(2,2))
+plot(primarylinearmodel_adjusted)
+
+```
+
+## ANOVA for Primary Dataset - APARNA
+```{r echo=FALSE,warning=FALSE}
+myprimarydata = read.csv("movie.primary.data.csv")
+#anova
+myData1.fix.aov <- aov(Rating ~ Age, data=myprimarydata)
+anova(myData1.fix.aov)
+boxplot(Age ~ Rating,
+        data = myprimarydata,
+        xlab = "Age",
+        ylab = "Rating")
+
+myData2.fix.aov <- aov(Rating ~ Occupation, data=myprimarydata)
+anova(myData2.fix.aov)
+boxplot(Rating ~ Occupation,
+        data = myprimarydata,
+        xlab = "Occupation",
+        ylab = "Rating")
+
+X = as.factor(myprimarydata$Gender)
+myData3.fix.aov <- aov(Rating ~ Gender, data=myprimarydata)
+anova(myData3.fix.aov)
+boxplot(Rating ~ Gender,
+        data = myprimarydata,
+        xlab = "Gender",
+        ylab = "Rating")
+
+
+```
+
+## ANOVA for Secondary Dataset - JHANVI
+```{r echo = FALSE,warning=FALSE}
+mysecondarydata <- read.csv("./Secondary_dataset.csv")
+
+aov(mysecondarydata$Content.Likability.Rating ~ mysecondarydata$Age)
+boxplot(mysecondarydata$Content.Likability.Rating ~ mysecondarydata$Age)
+
+aov(mysecondarydata$Content.Likability.Rating ~ mysecondarydata$Gender)
+boxplot(mysecondarydata$Content.Likability.Rating ~ mysecondarydata$Gender)
+
+aov(mysecondarydata$Content.Likability.Rating ~ mysecondarydata$Netflix.Future)
+boxplot(mysecondarydata$Content.Likability.Rating ~ mysecondarydata$Netflix.Future)
+
+```
+
+

@@ -1,0 +1,101 @@
+Response Id,Age,Gender,Marital Status,Frequency,Theaters1,Theaters,Free.Online1,Free.Online,Netflix1,Netflix,Others,Source Preference,Content Likability Rating,Theatre Viewing Reasons,Action,Comedy,Romance,Thriller,Adeventure,Mystery,Horror,Animation,Viewing Behaviour Change,Netflix Future
+1,3,Male,Married ,Daily ,YES,1,NO,0,NO,0,0,theaters ,100,Genre preferences,1,1,0,1,0,0,0,1,No,Can't say
+2,2,Female,Unmarried,Monthly,NO,0,YES,1,NO,0,0,free online streaming,73,Genre preferences,0,1,0,0,0,0,1,0,Yes,Yes
+3,3,Male,Unmarried,Weekly ,NO,0,NO,0,YES,1,0,Paid subscription like Netflix ,81,Cast preferences ,1,1,0,0,1,0,1,0,Yes,No
+4,3,Female,Unmarried,Monthly,YES,1,NO,0,NO,0,0,theaters ,70,Cast preferences ,0,1,1,0,0,0,0,0,Can't say,Yes
+5,4,Female,Married,Rarely,NO,0,YES,1,NO,0,0,free online streaming,82,Cast preferences ,0,0,1,0,0,0,0,0,Yes,Yes
+6,1,Female,Unmarried,Weekly ,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,6,Genre preferences,1,1,0,1,1,1,1,1,Can't say,Yes
+7,4,Female,Married,Monthly,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,60,Director preferences,1,1,1,1,1,1,1,1,No,Can't say
+8,4,Female,Married,Monthly,NO,0,YES,1,YES,1,0,Paid subscription like Netflix|free online streaming,50,Genre preferences,0,0,0,1,1,1,0,1,No,Can't say
+9,3,Female,Married,Biweekly,NO,0,NO,0,NO,0,1,others,74,Cast preferences ,0,1,1,0,0,0,0,0,Yes,Can't say
+10,4,Female,Married,Monthly,NO,0,YES,1,NO,0,0,free online streaming ,64,Cast preferences ,0,0,0,0,0,0,0,1,No,Yes
+11,4,Male,Married,Monthly,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,80,Genre preferences,1,1,0,1,1,1,1,1,Yes,No
+12,3,Female,Married,Biweekly,NO,0,NO,0,NO,0,1,others,20,Director preferences,0,1,0,0,0,1,0,0,No,Can't say
+13,4,Female,Married,Weekly ,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,49,Cast preferences ,0,0,1,0,0,0,0,0,No,Yes
+14,3,Female,Married,Rarely,NO,0,YES,1,YES,1,0,Paid subscription like Netflix|free online streaming,70,Director preferences,0,1,1,1,1,0,0,0,No,Can't say
+15,3,Male,Married,Monthly,YES,1,YES,1,NO,0,0,Theaters|free online streaming,46,Genre preferences,1,1,1,1,1,1,0,0,Yes,Can't say
+16,3,Female,Married,Monthly,NO,0,YES,1,NO,0,0,free online streaming,7,Cast preferences ,0,1,0,0,0,0,0,0,Yes,Yes
+17,3,Female,Married,Monthly,YES,1,NO,0,YES,1,0,Paid subscription like Netflix|Theaters    ,75,Genre preferences,1,1,1,1,0,1,0,0,Yes,No
+18,3,Female,Married,Weekly ,NO,0,NO,0,NO,0,1,others,3,Cast preferences ,0,1,0,0,1,1,0,1,Yes,Yes
+19,4,Female,Married,Monthly,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,70,Genre preferences,0,0,0,0,0,1,0,0,Can't say,Yes
+20,4,Male,Married,Weekly ,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,40,Genre preferences,1,1,0,0,1,0,0,0,Yes,No
+21,4,Male,Married,Weekly ,YES,1,NO,0,NO,0,0,theaters ,49,Cast preferences ,0,1,0,0,0,0,0,0,Yes,No
+22,4,Female,Married,Monthly,YES,1,YES,1,NO,0,0,Theaters|free online streaming,NA,Genre preferences,1,1,,0,0,1,0,0,Yes,No
+23,3,Male,Married,Biweekly,YES,1,NO,0,NO,0,0,theaters,5,Genre preferences,0,0,0,1,0,0,0,0,Yes,Yes
+24,3,Male,Unmarried,Daily ,YES,1,NO,0,YES,1,0,Paid subscription like Netflix|Theaters    ,40,Director preferences,1,1,0,1,1,1,0,1,Yes,No
+25,4,Male,Married,Monthly,NO,0,NO,0,YES,1,0,Netflix,72,Director preferences,1,0,0,1,1,1,0,0,Yes,No
+26,4,Male,Married,Biweekly,YES,1,YES,1,NO,0,0,Theaters|free online streaming,8,Genre preferences,1,0,0,0,1,1,0,0,No,No
+27,3,Male,Married,Weekly ,YES,1,YES,1,NO,0,0,Theaters|free online streaming,46,Cast preferences ,1,1,1,1,1,1,0,0,Yes,No
+28,4,Male,Married,Weekly ,YES,1,NO,0,YES,1,0,Netflix|Theaters,55,Cast preferences ,1,1,0,1,1,1,0,0,Can't say,Can't say
+29,2,Male,Married,Rarely,YES,1,NO,0,NO,0,0,theaters,66,Genre preferences,1,1,1,1,1,1,1,1,No,No
+30,4,Male,Married,Monthly,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,68,Director preferences,1,1,1,1,1,0,0,0,No,No
+31,4,Male,Married,Biweekly,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,53,Director preferences,1,0,0,1,1,1,0,1,Yes,No
+32,4,Male,Married,Biweekly,NO,0,NO,0,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,86,Cast preferences ,1,1,1,1,1,1,0,0,No,Yes
+33,4,Male,Married,Rarely,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,3,Genre preferences,0,1,1,0,0,0,0,0,No,No
+34,4,Male,Married,Biweekly,YES,1,NO,0,YES,1,0,Paid subscription like Netflix|Theaters    ,100,Director preferences,1,1,1,0,1,0,0,0,No,Yes
+35,4,Female,Married,Monthly,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,80,Genre preferences,0,0,0,0,1,0,0,0,No,No
+36,3,Female,Married,Weekly ,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,63,Cast preferences ,1,1,0,1,1,1,0,0,No,No
+37,4,Female,Married,Weekly ,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,69,Genre preferences,1,1,0,1,1,1,0,1,No,No
+38,4,Female,Married,Monthly,YES,1,NO,0,NO,0,0,theaters,39,Cast preferences ,1,1,0,1,1,0,1,1,Can't say,Can't say
+39,4,Male,Married,Rarely,YES,1,NO,0,NO,0,1,theaters|Others,61,Genre preferences,0,1,0,1,0,1,0,0,Yes,Can't say
+40,2,Male,Married,Daily ,NO,0,YES,1,NO,0,0,free online streaming,89,Genre preferences,0,1,1,0,1,1,0,0,Yes,Can't say
+41,4,Male,Married,Weekly ,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,78,Cast preferences ,1,1,1,0,0,0,0,0,No,No
+42,4,Male,Married,Monthly,NO,0,YES,1,NO,0,0,free online streaming,0,Genre preferences,0,1,0,1,0,1,0,0,No,No
+43,4,Male,Married,Monthly,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,0,Genre preferences,0,1,0,0,1,0,0,1,Can't say,No
+44,4,Male,Married,Weekly ,YES,1,NO,0,YES,1,0,Paid subscription like Netflix|Theaters    ,10,Cast preferences ,0,1,0,1,1,1,1,1,Can't say,No
+45,4,Male,Married,Biweekly,YES,1,YES,1,NO,0,0,Theaters|free online streaming|Others,80,Genre preferences,1,0,0,1,1,1,0,0,Can't say,No
+46,3,Female,Married,Biweekly,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,90,Director preferences,1,1,1,0,1,1,0,1,No,Can't say
+47,3,Female,Married,Weekly ,YES,1,YES,1,NO,0,0,Theaters|Free online streaming     ,79,Director preferences,1,1,0,0,1,1,0,1,No,Can't say
+48,4,Male,Married,Weekly ,YES,1,YES,1,YES,1,0,Paid subscription like Netflix|theaters|free online streaming,70,Director preferences,0,0,0,1,0,1,1,0,Yes,Can't say
+49,3,Male,Married,Monthly,YES,1,NO,0,NO,0,0,theaters ,36,Director preferences,1,1,1,1,0,0,0,0,No,No
+50,4,Male,Married,Weekly ,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,62,Director preferences,1,0,0,1,0,0,1,0,Yes,Can't say
+51,3,Female,Married,Biweekly,YES,1,NO,0,NO,0,0,theaters ,70,Director preferences,0,1,0,1,0,1,0,0,Can't say,No
+52,4,Male,Married,Rarely,NO,0,YES,1,NO,0,0,free online streaming ,50,Director preferences,1,0,0,1,0,0,0,0,Yes,No
+53,3,Female,Married,Weekly ,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,40,Genre preferences,0,1,1,1,0,1,0,1,Yes,No
+54,3,Male,Married,Rarely,YES,1,NO,0,NO,0,0,theaters ,4,Cast preferences ,1,0,0,0,0,0,0,1,Yes,No
+55,4,Male,Married,Weekly ,NO,0,YES,1,NO,0,0,free online streaming ,0,Genre preferences,1,0,0,1,1,0,0,1,Can't say,No
+56,1,Male,Unmarried,Weekly ,NO,0,NO,0,YES,1,0,Paid subscription like Netflix ,67,Genre preferences,1,0,0,0,0,0,0,0,Can't say,Yes
+57,4,Male,Married,Monthly,NO,0,YES,1,YES,1,1,Paid subscription like Netflix|free online streaming|others ,63,Director preferences,1,0,0,1,1,0,0,1,No,No
+58,4,Male,Married,Monthly,YES,1,NO,0,YES,1,0,Paid subscription like Netflix|theaters ,81,Director preferences,0,1,0,1,0,1,0,0,Yes,No
+59,3,Male,Married,Weekly ,NO,0,YES,1,YES,1,1,Paid subscription like Netflix|free online streaming|others ,21,Genre preferences,1,1,1,1,1,1,0,0,No,No
+60,4,Male,Married,Monthly,YES,1,NO,0,YES,1,0,Paid subscription like Netflix|theaters ,65,Genre preferences,1,1,0,1,1,0,0,0,Yes,No
+61,4,Male,Married,Weekly ,YES,1,YES,1,NO,0,0,theaters|free online streaming ,53,Cast preferences ,0,1,0,0,1,1,0,0,Yes,No
+62,4,Female,Married,Weekly ,NO,0,NO,0,YES,1,0,Paid subscription like Netflix ,80,Director preferences,0,1,1,0,0,1,0,0,No,Can't say
+63,3,Female,Married,Rarely,NO,0,YES,1,NO,0,0,free online streaming,4,Genre preferences,0,1,0,0,0,0,0,0,Can't say,Can't say
+64,4,Male,Married,Weekly ,NO,0,YES,1,NO,0,0,free online streaming,71,Director preferences,1,0,0,1,1,0,0,0,Yes,No
+65,2,Male,Unmarried,Rarely,YES,1,NO,0,NO,0,0,theaters ,100,Director preferences,1,1,0,1,1,0,1,0,No,No
+66,4,Male,Married,Rarely,YES,1,NO,0,NO,0,0,theaters ,0,Director preferences,0,1,1,0,1,0,0,0,Can't say,Can't say
+67,4,Male,Married,Monthly,NO,0,YES,1,NO,0,0,free online streaming,60,Cast preferences ,1,1,1,0,0,0,0,0,No,Yes
+68,4,Female,Married,Daily ,NO,0,YES,1,NO,0,0,free online streaming,29,Genre preferences,0,1,1,0,0,0,0,0,Can't say,Can't say
+69,4,Male,Living with partners,Weekly ,YES,1,YES,1,YES,1,0,Paid subscription like Netflix | theaters | free online streaming,0,Cast preferences ,1,1,0,1,0,1,0,1,Yes,Yes
+70,4,Male,Married,Rarely,YES,1,YES,1,YES,1,0,Paid subscription like Netflix | theaters | free online streaming,37,Genre preferences,1,0,0,1,1,1,1,1,Yes,No
+71,4,Male,Married,Weekly ,YES,1,YES,1,NO,0,0,theaters|free online streaming ,66,Genre preferences,1,1,1,1,1,1,0,1,No,Can't say
+72,2,Others,Living with partners,Rarely,NO,0,NO,0,NO,0,1,others,0,Genre preferences,0,0,1,1,0,0,0,0,Can't say,Can't say
+73,4,Male,Married,Weekly ,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,45,Genre preferences,0,1,0,0,1,0,0,1,Yes,Can't say
+74,1,Female,Unmarried,Biweekly,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,71,Cast preferences ,0,1,1,0,1,0,1,1,Yes,No
+75,1,Female,Unmarried,Weekly ,NO,0,YES,1,NO,0,0,free online streaming,46,Director preferences,1,1,1,0,0,0,0,0,Yes,No
+76,2,Male,Unmarried,Daily ,YES,1,NO,0,NO,0,0,theaters,44,Cast preferences ,1,0,0,1,0,0,1,1,Can't say,No
+77,2,Female,Unmarried,Monthly,YES,1,NO,0,NO,0,0,theaters,0,Director preferences,0,1,1,1,1,0,0,1,No,No
+78,2,Female,Unmarried,Weekly ,NO,0,YES,1,NO,0,0,free online streaming,75,Genre preferences,1,1,1,1,1,1,1,1,Can't say,No
+79,2,Male,Unmarried,Monthly,YES,1,NO,0,NO,0,0,theaters,80,Genre preferences,0,0,0,0,1,0,0,0,No,Yes
+80,2,Male,Unmarried,Weekly ,YES,1,YES,1,YES,1,1,Paid subscription like Netflix | theaters | free online streaming | others,0,Cast preferences ,1,1,1,1,1,1,0,1,No,No
+81,2,Female,Unmarried,Monthly,YES,1,NO,0,NO,0,0,theaters,75,Cast preferences ,0,1,1,0,0,1,0,1,Yes,Yes
+82,2,Male,Unmarried,Daily ,NO,0,NO,0,YES,1,0,Paid subscription like Netflix,70,Genre preferences,0,0,0,1,0,0,1,0,No,No
+83,2,Male,Unmarried,Weekly ,NO,0,YES,1,YES,1,0,Paid subscription like Netflix | free online streaming,60,Genre preferences,0,1,0,1,1,1,0,0,Yes,No
+84,2,Male,Unmarried,Monthly,YES,1,YES,1,NO,0,0,theaters|free online streaming,90,Cast preferences ,1,1,0,1,0,1,0,0,No,Can't say
+85,2,Female,Unmarried,Monthly,YES,1,NO,0,NO,0,0,theaters,52,Cast preferences ,1,1,0,1,1,0,0,0,Can't say,No
+86,2,Male,Unmarried,Biweekly,YES,1,NO,0,YES,1,0,Paid subscription like Netflix | theaters,90,Genre preferences,1,0,0,1,0,0,0,0,Yes,Yes
+87,2,Male,Unmarried,Weekly ,NO,0,YES,1,NO,0,0,free online streaming,50,Genre preferences,0,0,0,0,0,0,1,0,Can't say,Can't say
+88,2,Male,Unmarried,Weekly ,YES,1,YES,1,YES,1,1,Paid subscription like Netflix | theaters | free online streaming | others,32,Genre preferences,1,1,1,1,1,1,1,1,Yes,No
+89,2,Male,Unmarried,Monthly,NO,0,YES,1,NO,0,0,free online streaming,42,Genre preferences,1,1,1,1,1,1,0,0,No,Can't say
+90,2,Female,Unmarried,Rarely,NO,0,YES,1,NO,0,0,free online streaming,78,Cast preferences ,0,1,1,0,1,0,1,0,Yes,Can't say
+91,2,Male,Unmarried,Monthly,YES,1,YES,1,NO,0,0,theaters|free online streaming,80,Cast preferences ,1,1,1,0,0,0,0,0,No,Yes
+92,2,Male,Unmarried,Weekly ,NO,0,YES,1,NO,0,0,free online streaming,50,Genre preferences,0,1,0,1,1,0,0,0,Yes,No
+93,2,Male,Unmarried,Rarely,YES,1,NO,0,NO,0,0,theaters,51,Genre preferences,1,0,0,1,1,1,0,1,Can't say,Can't say
+94,2,Female,Unmarried,Rarely,NO,0,YES,1,NO,0,0,free online streaming,24,Director preferences,0,1,0,0,0,0,0,1,No,No
+95,2,Female,Unmarried,Monthly,YES,1,NO,0,NO,0,0,theaters,50,Cast preferences ,0,1,1,1,1,1,0,0,No,No
+96,2,Female,Unmarried,Weekly ,YES,1,YES,1,NO,0,0,theaters|free online streaming,69,Genre preferences,0,1,0,1,0,1,1,0,Yes,No
+97,2,Male,Unmarried,Monthly,YES,1,YES,1,NO,0,0,theaters|free online streaming,66,Director preferences,1,1,0,1,0,0,0,0,No,No
+98,2,Male,Unmarried,Monthly,YES,1,YES,1,NO,0,0,theaters|free online streaming,46,Director preferences,1,1,1,1,1,1,1,1,No,No
+99,2,Male,Unmarried,Weekly ,YES,1,NO,0,NO,0,0,theaters,80,Director preferences,0,1,0,1,1,1,0,0,Yes,Can't say
+100,2,Female,Unmarried,Rarely,NO,0,YES,1,NO,0,0,free online streaming,50,Director preferences,0,1,1,1,1,0,0,1,Yes,Can't say
